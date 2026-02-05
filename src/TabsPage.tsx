@@ -1,4 +1,4 @@
-import { NavLink, useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -18,13 +18,12 @@ export const TabsPage = () => {
       <div className="tabs is-boxed">
         <ul>
           {tabs.map(tab => (
-            <li key={tab.id} data-cy="Tab">
-              <NavLink
-                to={`/tabs/${tab.id}`}
-                className={({ isActive }) => (isActive ? 'is-active' : '')}
-              >
-                {tab.title}
-              </NavLink>
+            <li
+              key={tab.id}
+              data-cy="Tab"
+              className={tab.id === tabId ? 'is-active' : ''}
+            >
+              <Link to={`/tabs/${tab.id}`}>{tab.title}</Link>
             </li>
           ))}
         </ul>
