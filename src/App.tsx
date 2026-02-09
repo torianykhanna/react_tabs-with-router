@@ -39,19 +39,15 @@ export const App = () => {
       <div className="section">
         <div className="container">
           <Routes>
-            {/* redirect */}
             <Route path="/home" element={<Navigate to="/" replace />} />
 
-            {/* Home */}
             <Route path="/" element={<h1 className="title">Home page</h1>} />
 
-            {/* Tabs nested routes */}
             <Route path="tabs">
               <Route index element={<TabsPage />} />
               <Route path=":tabId" element={<TabsPage />} />
             </Route>
 
-            {/* 404 */}
             <Route
               path="*"
               element={<h1 className="title">Page not found</h1>}
